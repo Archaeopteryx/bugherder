@@ -443,7 +443,9 @@ var PushData = {
   makePush: function PD_makePush(cset) {
     var push = {};
     push.cset = cset.node.substring(0,12);
+    push.cset_git = cset.git_node;
     push.hgLink = Config.hgRevURL + push.cset;
+    push.gitLink = push.cset_git ? Config.gitRevURL + push.cset_git : null;
     // Only use the first line of the commit message, to avoid false
     // positives when checking for bug numbers and backouts later.
     push.desc = UI.htmlEncode(cset.desc.split('\n', 1)[0]);

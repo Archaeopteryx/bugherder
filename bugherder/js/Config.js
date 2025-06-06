@@ -5,6 +5,7 @@ var Config = {
   inMaintenanceMode : false,
 
   treeName: 'mozilla-central',
+  gitRevURL: "https://github.com/mozilla-firefox/firefox/commit/",
   hgBaseURL: "https://hg.mozilla.org/",
   hgURL: "https://hg.mozilla.org/mozilla-central/",
   hgRevURL: "https://hg.mozilla.org/mozilla-central/rev/",

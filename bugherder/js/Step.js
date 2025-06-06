@@ -492,7 +492,11 @@ Step.prototype.attachBugToCset = function Step_attachBugToCset(index, bugID) {
   var attached = {};
   var isMC = Config.treeName == 'mozilla-central';
 
-  attached.comment = PushData.allPushes[index].hgLink;
+  attached.comment = '';
+  if (PushData.allPushes[index].gitLink) {
+    attached.comment = `${PushData.allPushes[index].gitLink}\n`;
+  }
+  attached.comment += PushData.allPushes[index].hgLink;
 
   if (bugID in BugData.bugs) {
     attached.shouldComment = !(PushData.allPushes[index].backedOut);
