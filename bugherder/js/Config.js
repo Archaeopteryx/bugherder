@@ -32,6 +32,7 @@ var Config = {
   emailRE: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,   // I'm not looking for RFC 822 compliance here!
 
   // The many ways bug numbers are specified
+  bugRE0: /^\s*bug\s*(\d{4,7})\b/i,                       // e.g. b=XXXXXX
   bugRE1: /b(?:ug)?=(\d{4,7})\b/i,                       // e.g. b=XXXXXX
   bugRE2: /^fix(?:es)?\s*(?:for\s*)?(\d{4,7})\b/i,                         // Fix is sometimes used as a synonym for bug
   bugRE3: /to\s+fix\s+bug\s+(\d{4,7})/i,
@@ -207,7 +208,7 @@ var Config = {
   }
 };
 
-Config.bugNumberREs = [Config.bugRE1, Config.bugRE2, Config.bugRE3,
+Config.bugNumberREs = [Config.bugRE0, Config.bugRE1, Config.bugRE2, Config.bugRE3,
                        Config.bugRE4, Config.bugRE5, Config.bugRE6, Config.bugRE7];
 
 (function () {
