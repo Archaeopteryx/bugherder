@@ -131,6 +131,8 @@ var bugherder = {
     if (!mergeDesc)
       return '';
 
+    mergeDesc = mergeDesc.toLowerCase();
+
     var reArray = new Array();
 
     // Create the various regular expressions to match repo merges
