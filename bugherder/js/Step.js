@@ -936,7 +936,6 @@ Step.prototype.getAdditionalHelpText = function Step_getAdditionalHelpText() {
 
   var multiPost = ' associated with multiple changesets: the individual comments will be coalesced into a single comment.';
   var leaveOpenPost = ' "leave open" in the whiteboard, so the resolve flag has not been set.';
-  var securityPost = ' restricted - bugherder was unable to load the relevant information from Bugzilla.';
   var milestonePost = ' a milestone set. You may wish to check it is correct before submitting.';
   var alreadyCommentPost = ' to have already been commented with the correct changeset URL, so commenting there has been disabled.';
   var statusChangePost = ' tracked or uplifted and will have ' + bugherder.statusFlag + ' set to "fixed".';
@@ -957,7 +956,7 @@ Step.prototype.getAdditionalHelpText = function Step_getAdditionalHelpText() {
     text += this.constructTextFor(this.leaveOpenBugs, leaveOpenPost, hashave);
 
   if (this.securityBugs.length > 0)
-    text += this.constructTextFor(this.securityBugs, securityPost);
+    text += "<br>- Restricted bugs: " + this.securityBugs.length;
 
   if (this.haveComment.length > 0)
     text += this.constructTextFor(this.haveComment, alreadyCommentPost, appearTo, true);
